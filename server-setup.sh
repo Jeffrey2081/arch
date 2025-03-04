@@ -434,7 +434,7 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 if [[ ! -d "/sys/firmware/efi" ]]; then
-    pacstrap /mnt base base-devel linux linux-firmware --noconfirm --needed
+    pacstrap /mnt base base-devel linux wget unzip git linux-firmware --noconfirm --needed
 else
     pacstrap /mnt base base-devel linux linux-firmware efibootmgr --noconfirm --needed
 fi
@@ -477,7 +477,9 @@ fi
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
-arch-chroot /mnt /bin/bash -c "KEYMAP='${KEYMAP}' /bin/bash" <<EOF
+arch-chroot /mnt /bin/bash -c "KEYMAP='${KEYMAP}' /bin/bash
+ su - $USERNAME -c "git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && ./install.sh"   
+" <<EOF
 
 echo -ne "
 -------------------------------------------------------------------------
