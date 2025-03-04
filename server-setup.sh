@@ -477,9 +477,7 @@ fi
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
-arch-chroot /mnt /bin/bash -c "KEYMAP='${KEYMAP}' /bin/bash
- su - $USERNAME -c "git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && ./install.sh"   
-" <<EOF
+arch-chroot /mnt /bin/bash -c "KEYMAP='${KEYMAP}' /bin/bash" <<EOF
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -683,4 +681,5 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+ su - $USERNAME -c "git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && ./install.sh"   
 EOF
