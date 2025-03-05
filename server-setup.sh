@@ -681,5 +681,5 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
- git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && chmod +x arch-bspwm-server.sh && ./arch-bspwm-server.sh"  
+ git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && bash arch-bspwm-server.sh"  
   " EOF
