@@ -681,5 +681,10 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
- git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && bash arch-bspwm-server.sh"  
-  " EOF
+
+echo "Arch base installation finished! Initializing post-install bspwm setup..."
+su - "$USERNAME" -c "git clone https://github.com/Jeffrey2081/arch-bspwm.git && cd arch-bspwm && bash arch-bspwm-server.sh" || true
+
+EOF
+
+echo "Installation complete! You can now reboot into your new Arch Linux system."
